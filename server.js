@@ -2,11 +2,12 @@
 // import path, { dirname } from "path";
 
 const express = require("express");
+const cors = require("cors");
 
 const app = express();
 
 app.use("/static", express.static("public"));
-
+app.use(cors());
 app.get("/", (req, res) => {
   res.sendFile("public/index.html", { root: __dirname });
 });
